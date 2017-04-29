@@ -63,6 +63,7 @@ void City::showAnswer()
         checkId = 3;
     }
     aw->preShow(rIndex, checkId);
+    aw->preShow(questions[questionNumber].rightIndex, checkId);
     hide();
 }
 
