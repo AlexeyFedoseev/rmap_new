@@ -17,11 +17,7 @@ City::City(int x, int y, QString name, const QVector<Question> &questions, MainW
     QDialog(parent), questions(questions), ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-    QImage image(":/spb.png");
-    QGraphicsScene* scene = new QGraphicsScene();
-    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
-    scene->addItem(item);
-    ui->graphicsView->setScene(scene);;
+
     rect = QRect(x-10, y-10, 20, 20);
 
     ui->cityName->setText(name);
@@ -64,7 +60,6 @@ void City::showAnswer()
         checkId = 3;
     }
     aw->preShow(rIndex, checkId);
-    aw->preShow(questions[questionNumber].rightIndex, checkId);
     hide();
 }
 
@@ -130,6 +125,12 @@ void City::changeText()
     int temp[4];
     QTime t = QTime::currentTime();
     srand(t.msecsTo(t));
+
+    QImage image(questions[questionNumber].imagePath);
+    QGraphicsScene* scene = new QGraphicsScene();
+    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
+    scene->addItem(item);
+    ui->graphicsView->setScene(scene);
 
     ui->quest->setText(questions[questionNumber].questionText);
 

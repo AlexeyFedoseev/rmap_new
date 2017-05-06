@@ -1,6 +1,6 @@
 #include "question.h"
 
-Question::Question(QString text): questionText(text)
+Question::Question(QString text, QString img): questionText(text), imagePath(img)
 {
 
 }

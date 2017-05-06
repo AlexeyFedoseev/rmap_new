@@ -44,7 +44,9 @@ MainWindow::MainWindow(QWidget *parent) :
               line = in.readLine();
               while (line.startsWith("Q ")) {
                   QString questionString = line.right(line.length() - 2);
-                  Question q(questionString);
+                  line = in.readLine();
+                  QString imgPath = line.right(line.length() - 2);
+                  Question q(questionString, imgPath);
                   line = in.readLine();
                   while (line.startsWith("A ") || line.startsWith("R ")) {
                       QString answer = line.right(line.length() - 2);
