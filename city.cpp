@@ -17,10 +17,11 @@ City::City(int x, int y, QString name, const QVector<Question> &questions, MainW
     QDialog(parent), questions(questions), ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-    QImage image(":/SUx182.jpg");
-    QGraphicsScene* scene = new QGraphicsScene;
+    QImage image(":/spb.png");
+    QGraphicsScene* scene = new QGraphicsScene();
     QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
     scene->addItem(item);
+    ui->graphicsView->setScene(scene);;
     rect = QRect(x-10, y-10, 20, 20);
 
     ui->cityName->setText(name);
