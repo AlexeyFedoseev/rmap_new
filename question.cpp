@@ -1,8 +1,14 @@
 #include "question.h"
 
-Question::Question(QString text, QString img): questionText(text), imagePath(img)
+Question::Question(QString text)
 {
-
+    if(text >= 97){
+        text.insert(97, "\n");
+    }
+    if(text >= 194){
+        text.insert(194, "\n");
+    }
+    questionText = text;
 }
 
 Question::Question()

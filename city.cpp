@@ -13,11 +13,15 @@
 #include <QPushButton>
 #include <QTime>
 
-City::City(int x, int y, QString name, const QVector<Question> &questions, MainWindow* m, QWidget *parent) :
+City::City(int x, int y, QString name, QString imagePath, const QVector<Question> &questions, MainWindow* m, QWidget *parent) :
     QDialog(parent), questions(questions), ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-
+    QImage image(imagePath);
+    QGraphicsScene* scene = new QGraphicsScene();
+    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
+    scene->addItem(item);
+    ui->graphicsView->setScene(scene);;
     rect = QRect(x-10, y-10, 20, 20);
 
     ui->cityName->setText(name);
@@ -125,12 +129,6 @@ void City::changeText()
     int temp[4];
     QTime t = QTime::currentTime();
     srand(t.msecsTo(t));
-
-    QImage image(questions[questionNumber].imagePath);
-    QGraphicsScene* scene = new QGraphicsScene();
-    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
-    scene->addItem(item);
-    ui->graphicsView->setScene(scene);
 
     ui->quest->setText(questions[questionNumber].questionText);
 

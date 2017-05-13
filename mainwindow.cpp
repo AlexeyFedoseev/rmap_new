@@ -40,13 +40,13 @@ MainWindow::MainWindow(QWidget *parent) :
               int x = line.right(line.length() - 2).toInt();
               line = in.readLine();
               int y = line.right(line.length() - 2).toInt();
+              line = in.readLine();
+              QString imgPath = line.right(line.length() - 2);
               QVector<Question> questions;
               line = in.readLine();
               while (line.startsWith("Q ")) {
                   QString questionString = line.right(line.length() - 2);
-                  line = in.readLine();
-                  QString imgPath = line.right(line.length() - 2);
-                  Question q(questionString, imgPath);
+                  Question q(questionString);
                   line = in.readLine();
                   while (line.startsWith("A ") || line.startsWith("R ")) {
                       QString answer = line.right(line.length() - 2);
@@ -55,7 +55,7 @@ MainWindow::MainWindow(QWidget *parent) :
                   }
                   questions.push_back(q);
               }
-              City* c = new City(x, y, cityName, questions, this);
+              City* c = new City(x, y, cityName, imgPath, questions, this);
               cities.push_back(c);
           }
        }

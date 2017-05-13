@@ -10,12 +10,11 @@ class Question
 
 public:
     QString questionText;
-    QString imagePath;
     QVector<QString> answers;
     int rightIndex;
 
     Question();
-    Question(QString text, QString img);
+    Question(QString text);
     ~Question();
     void addAnswer(QString text, bool correct);
 };
