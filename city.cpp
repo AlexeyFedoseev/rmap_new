@@ -50,6 +50,7 @@ bool City::checkPoint(QPoint p)
 
 void City::showAnswer()
 {
+    questions[questionNumber].answered = 1;
     int checkId = 5;
     if(ui->var1->isChecked()){
         checkId = 0;
@@ -72,12 +73,12 @@ void City::nextQuestion()
     show();
     uncheckButtons();
     aw->hide();
-    questionNumber++;
+    randQuestion();
     if(questionNumber < questions.size()){
         changeText();
+        questions[questionNumber].answered = 1;
     }
     else{
-        complete = true;
         eq->show();
         hide();
     }
@@ -85,24 +86,48 @@ void City::nextQuestion()
 
 void City::exitToMap()
 {
-    questionNumber++;
+    randQuestion();
     uncheckButtons();
     hide();
     if(questionNumber < questions.size()){
         changeText();
     }
-    else{
-        complete = true;
-    }
 }
 
 void City::restartQuestions()
 {
+    for (QVector<Question>::iterator it = questions.begin(); it != questions.end(); it++) {
+        (*it).answered = 0;
+    }
     eq->hide();
     complete = false;
-    questionNumber = 0;
+    randQuestion();
     changeText();
     show();
+}
+
+void City::randQuestion()
+{
+    int a = 0;
+    QTime t = QTime::currentTime();
+    srand(t.msec());
+
+    for (QVector<Question>::iterator it = questions.begin(); it != questions.end(); it++, a++) {
+        if((*it).answered == 0){
+            break;
+        }
+    }
+
+    if(a != questions.size()){
+        questionNumber = rand() % questions.size();
+        while(questions[questionNumber].answered != 0){
+            questionNumber = rand() % questions.size();
+        }
+    } else{
+        complete = true;
+        eq->show();
+        hide();
+    }
 }
 
 void City::uncheckButtons()
@@ -128,7 +153,7 @@ void City::changeText()
 {
     int temp[4];
     QTime t = QTime::currentTime();
-    srand(t.msecsTo(t));
+    srand(t.msec());
 
     ui->quest->setText(questions[questionNumber].questionText);
 

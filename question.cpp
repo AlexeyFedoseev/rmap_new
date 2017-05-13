@@ -2,11 +2,11 @@
 
 Question::Question(QString text)
 {
-    if(text >= 97){
-        text.insert(97, "\n");
+    if(text.size() >= 97){
+        text.insert(97, "-\n");
     }
-    if(text >= 194){
-        text.insert(194, "\n");
+    if(text.size() >= 194){
+        text.insert(194, "-\n");
     }
     questionText = text;
 }

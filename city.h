@@ -37,6 +37,7 @@ public slots:
     void restartQuestions();
 
 private:
+    void randQuestion();
     int rIndex;
     void uncheckButtons();
     void changeText();

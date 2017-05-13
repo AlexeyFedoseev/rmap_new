@@ -12,6 +12,7 @@ public:
     QString questionText;
     QVector<QString> answers;
     int rightIndex;
+    bool answered = 0;
 
     Question();
     Question(QString text);
