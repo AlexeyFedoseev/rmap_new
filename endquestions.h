@@ -20,6 +20,7 @@ class EndQuestions : public QWidget
 public:
     EndQuestions(City* city, MainWindow* mw);
     ~EndQuestions();
+    void preShow(City *city);
 };
 
 #endif // ENDQUESTIONS_H

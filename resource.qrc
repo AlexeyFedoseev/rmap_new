@@ -7,5 +7,38 @@
         <file>mos.png</file>
         <file>tul.png</file>
         <file>yar.png</file>
+        <file>ast.png</file>
+        <file>barn.png</file>
+        <file>chel.png</file>
+        <file>ekb.png</file>
+        <file>habr.png</file>
+        <file>irk.png</file>
+        <file>izh.png</file>
+        <file>kaz.png</file>
+        <file>kem.png</file>
+        <file>krasnodar.png</file>
+        <file>krasnyarsk.png</file>
+        <file>lip.png</file>
+        <file>nch.png</file>
+        <file>nkuz.png</file>
+        <file>nnov.png</file>
+        <file>nsk.png</file>
+        <file>omsk.png</file>
+        <file>oren.png</file>
+        <file>penz.png</file>
+        <file>perm.png</file>
+        <file>rnd.png</file>
+        <file>ryaz.png</file>
+        <file>sam.png</file>
+        <file>sar.png</file>
+        <file>sev.png</file>
+        <file>tol.png</file>
+        <file>tomsk.png</file>
+        <file>tum.png</file>
+        <file>ufa.png</file>
+        <file>ulyan.png</file>
+        <file>vdvk.png</file>
+        <file>volg.png</file>
+        <file>vor.png</file>
     </qresource>
 </RCC>

@@ -64,7 +64,7 @@ void City::showAnswer()
     if(ui->var4->isChecked()){
         checkId = 3;
     }
-    aw->preShow(rIndex, checkId);
+    aw->preShow(rIndex, checkId, this);
     hide();
 }
 
@@ -79,7 +79,7 @@ void City::nextQuestion()
         questions[questionNumber].answered = 1;
     }
     else{
-        eq->show();
+        eq->preShow(this);
         hide();
     }
 }
@@ -125,7 +125,7 @@ void City::randQuestion()
         }
     } else{
         complete = true;
-        eq->show();
+        eq->preShow(this);
         hide();
     }
 }

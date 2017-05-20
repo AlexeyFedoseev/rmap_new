@@ -29,6 +29,8 @@ public:
     bool checkPoint(QPoint p);
     bool complete = false;
     EndQuestions* eq;
+    int rightAnswers = 0;
+    QVector<Question> questions;
 
 public slots:
     void showAnswer();
@@ -44,7 +46,6 @@ private:
     int questionNumber = 0;
     Ui::Dialog *ui;
     QRect rect;
-    QVector<Question> questions;
     AnswerWindow* aw;
 };
 

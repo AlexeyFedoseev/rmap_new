@@ -14,3 +14,13 @@ EndQuestions::~EndQuestions()
 {
 
 }
+
+void EndQuestions::preShow(City* city)
+{
+    QString result = "Вы ответили правильно на ";
+    result += QString::number(city->rightAnswers);
+    result += " из ";
+    result += QString::number(city->questions.size());
+    ui->result->setText(result);
+    show();
+}

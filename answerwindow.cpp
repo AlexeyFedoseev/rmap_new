@@ -18,25 +18,22 @@ AnswerWindow::~AnswerWindow()
 
 }
 
-void AnswerWindow::preShow(int rightIndex, int checkId)
+void AnswerWindow::preShow(int rightIndex, int checkId, City* city)
 {
     if(rightIndex == checkId){
-        QImage image(":/galochka.png");
-        QGraphicsScene* scene = new QGraphicsScene();
-        QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
-        scene->addItem(item);
-        ui->graphicsView->setScene(scene);
-        //ui->imageLabel->setPixmap(":/galochka.png");
+        QPixmap pix;
+        pix.load(":/galochka.png");
+        ui->image->resize(pix.size());
+        ui->image->setPixmap(pix);
         ui->label->setText("Ты ответил на вопрос правильно");
-
+        city->rightAnswers++;
     }
     else {
+        QPixmap pix;
+        pix.load(":/krest.PNG");
         QImage image(":/krest.PNG");
-        QGraphicsScene* scene = new QGraphicsScene();
-        QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
-        scene->addItem(item);
-        ui->graphicsView->setScene(scene);
-        //ui->imageLabel->setPixmap(":/krest.jpg");
+        ui->image->resize(pix.size());
+        ui->image->setPixmap(pix);
         ui->label->setText("Ты ответил на вопрос неправильно");
     }
     show();

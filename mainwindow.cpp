@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-    QFile file("questions.txt");
+    QFile file("russia.questions");
     if (file.open(QIODevice::ReadOnly))
     {
        QTextStream in(&file);

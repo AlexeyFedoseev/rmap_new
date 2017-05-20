@@ -20,7 +20,7 @@ class AnswerWindow : public QWidget
 public:
     AnswerWindow(City *city, MainWindow* mw);
     ~AnswerWindow();
-    void preShow(int rightIndex, int checkId);
+    void preShow(int rightIndex, int checkId, City *city);
 };
 
 #endif // ANSWERWINDOW_H
