@@ -17,10 +17,11 @@ EndQuestions::~EndQuestions()
 
 void EndQuestions::preShow(City* city)
 {
-    QString result = "Вы ответили правильно на ";
+    QString result = "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Вы ответили правильно на ";
     result += QString::number(city->rightAnswers);
     result += " из ";
     result += QString::number(city->questions.size());
+    result += " вопросов</span></p></body></html>";
     ui->result->setText(result);
     show();
 }

@@ -24,7 +24,10 @@ City::City(int x, int y, QString name, QString imagePath, const QVector<Question
     ui->graphicsView->setScene(scene);;
     rect = QRect(x-10, y-10, 20, 20);
 
+    name = "<html><head/><body><p align=\"center\">" + name;
+    name = name + "</p><p align=\"center\"><br/></p></body></html>";
     ui->cityName->setText(name);
+    randQuestion();
     changeText();
 
     eq = new EndQuestions(this, m);
